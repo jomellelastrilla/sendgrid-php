@@ -6,8 +6,8 @@ require 'vendor/autoload.php';
 require_once 'sendgrid-php.php';
 $email = new \SendGrid\Mail\Mail();
 $email->setFrom("system@safecitymississauga.online", "SafeCityMissassauga");
-$email->setSubject("1DDC8A7B0D14");
-$email->addTo("sendgridtesting@gmail.com", "Example User");
+$email->setSubject(getenv('SENDGRID_SUBJECT_CODE'));
+$email->addTo(getenv('SENDGRID_EMAIL'), "Example User");
 $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
 $email->addContent(
     "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
